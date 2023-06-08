@@ -13,3 +13,36 @@
  *= require_tree .
  *= require_self
  */
+
+.deal {
+  border: 1px solid red;
+}
+
+
+ * {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: magenta;
+}
+
+body {
+  color: #434b54;
+}
+
+.category_left {
+  border: 1px solid red;
+}
+
+.category {
+  background-color: #fff;
+}
+
+.category_icon {
+  width: 80px;
+  height: 80px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
