@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-  belongs_to :author, class_name: 'User'
+  belongs_to :user
 
   has_one_attached :icon
   has_many :deal_categories, dependent: :destroy

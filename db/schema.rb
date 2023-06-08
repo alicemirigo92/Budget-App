@@ -45,10 +45,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_204221) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "icon"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "author_id"
-    t.index ["author_id"], name: "index_categories_on_author_id"
+    t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
   create_table "deal_categories", force: :cascade do |t|
@@ -63,9 +63,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_204221) do
   create_table "deals", force: :cascade do |t|
     t.string "name"
     t.integer "amount"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "author_id"
     t.index ["author_id"], name: "index_deals_on_author_id"
   end
 
@@ -88,7 +88,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_204221) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "categories", "users", column: "author_id"
+  add_foreign_key "categories", "users"
   add_foreign_key "deal_categories", "categories"
   add_foreign_key "deal_categories", "deals"
   add_foreign_key "deals", "users", column: "author_id"

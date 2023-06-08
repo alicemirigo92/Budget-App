@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories or /categories.json
   def index
-    @categories = Category.includes(:deals).where(author: current_user)
+    @categories = Category.includes(:deals).where(user: current_user)
   end
 
   # GET /categories/1 or /categories/1.json
@@ -26,7 +26,7 @@ class CategoriesController < ApplicationController
     p icon
     @category = Category.new(category_params)
     puts current_user.id
-    @category.author = current_user
+    @category.user = current_user
     respond_to do |format|
       if @category.save
         format.html { redirect_to categories_path, notice: 'Category was successfully created.' }
