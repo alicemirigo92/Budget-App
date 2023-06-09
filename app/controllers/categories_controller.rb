@@ -36,9 +36,7 @@ class CategoriesController < ApplicationController
     end
   end
 
-
   private
-
 
   # Only allow a list of trusted parameters through.
   def category_params
