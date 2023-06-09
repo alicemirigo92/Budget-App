@@ -5,7 +5,6 @@ class DealCategoriesController < ApplicationController
   end
 
   def create
-    puts "Hello, Rails!"
     deal = Deal.create(name: deal_params[:name], author_id: current_user.id, amount: deal_params[:amount])
 
     if deal.save
