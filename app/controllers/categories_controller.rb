@@ -11,12 +11,14 @@ class CategoriesController < ApplicationController
   def older_index
     @categories = Category.where(user: current_user).includes(:deal_categories).order(created_at: :asc)
   end
+
   # GET /categories/1 or /categories/1.json
   def show
-    @category= Category.find(params[:id])
+    @category = Category.find(params[:id])
     @deal_categories = DealCategory.includes(:deal).where(category_id: @category).order(created_at: :desc)
     @total = 0
-    @deal_categories.each { |e| @total += e.deal.amount } end
+    @deal_categories.each { |e| @total += e.deal.amount }
+  end
 
   # GET /categories/new
   def new
@@ -27,7 +29,7 @@ class CategoriesController < ApplicationController
   def create
     category = Category.new(category_params)
     category.user = current_user
-    if  category.save
+    if category.save
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
