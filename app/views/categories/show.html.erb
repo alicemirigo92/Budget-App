@@ -1,10 +1,33 @@
-<p style="color: green"><%= notice %></p>
+<div class="d-flex justify-content-between top p-2">
+    <%= link_to root_path, class: 'text-light h1' do %>
+        <i class="bi bi-arrow-left"></i>
+    <% end %>
+    <h2 class='text-light h1'>DEAL</h2>
+    <p></p>
+</div>
 
-<%= render @category %>
-
-<div>
-  <%= link_to "Edit this category", edit_category_path(@category) %> |
-  <%= link_to "Back to categories", categories_path %>
-
-  <%= button_to "Destroy this category", @category, method: :delete %>
+<% if @deal_categories.size > 0%>
+<div id="categories" class="p-2">
+  <p class="d-flex justify-content-between">
+    <span>Total payment:</span><span class='font-weight-bold'>$<%= @total %></span>
+  </p>
+  <% @deal_categories.each do |category| %>
+    <div class="d-flex justify-content-between align-items border bg-light mt-2 mb-2 p-1">
+      <div class="d-flex flex-column">
+        <p>  
+         <%= category.deal.name %>
+        </p>
+        <small class='text-secondary'>
+          <%= category.created_at.strftime("%d %h %Y")%> at <%=category.created_at.strftime("%l.%M%P")%>
+        </small>
+      </div>
+      <p class='font-weight-bold font-italic'>$<%= category.deal.amount %></p>
+    </div>
+  <% end %>
+ <% else %>
+    <p class="p-2">No deal added yet for this category</p>
+ <% end %>
+  <div class="text-light footer d-flex justify-content-center p-3">
+    <%= link_to "Add new deal", new_deal_category_path, class: 'btn border border-light p-2' %>
+  </div>
 </div>
