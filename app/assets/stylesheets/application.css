@@ -18,8 +18,7 @@
   border: 1px solid red;
 }
 
-
- * {
+* {
   padding: 0;
   margin: 0;
 }
@@ -31,10 +30,6 @@ a {
 body {
   color: #434b54;
 }
-/* 
-.category_left {
-  border: 1px solid red;
-} */
 
 .category {
   background-color: #fff;

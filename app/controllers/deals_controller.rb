@@ -31,7 +31,7 @@ class DealsController < ApplicationController
 
     respond_to do |format|
       if @deal.save
-        DealCategory.create(deal_id: @deal.id, category_id: category_id)
+        DealCategory.create(deal_id: @deal.id, category_id:)
         format.html { redirect_to category_deals_path, notice: 'Deal was successfully created.' }
         format.json { render :show, status: :created, location: @deal }
       else
