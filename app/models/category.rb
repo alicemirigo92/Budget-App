@@ -1,10 +1,10 @@
 class Category < ApplicationRecord
-  belongs_to :User, class_name: 'User'
+  belongs_to :user
 
-  has_one_attached :icon
-  has_many :deal_category, dependent: :destroy
-  has_many :deal, through: :deal_category
+  # has_one_attached :icon
+  has_many :deal_categories, dependent: :destroy
+  has_many :deals, through: :deal_categories
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 50 }
   validates :icon, presence: true
 end
