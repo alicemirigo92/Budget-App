@@ -1,6 +1,9 @@
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
 }
 
 a {
@@ -8,7 +11,9 @@ a {
 }
 
 body {
-  color: #434b54;
+  display: block;
+  width: auto;
+  background-color: rgba(240, 245, 245, 0.5);
 }
 
 .top input {
@@ -25,18 +30,18 @@ body {
 
 .top,
 .top input,
-#off-canvas,
-.splash {
+#off-canvas {
   background-color: #3778c2;
   color: #fff;
 }
 
 .splash {
+  width: 50%;
   height: 100vh;
 }
 
-.splash img {
-  width: 100vw;
+.custom-margin {
+  margin: 2px;
 }
 
 .footer,
@@ -92,8 +97,7 @@ body {
   cursor: pointer;
 }
 
-/*
 .bi-person-circle {
   padding: 20px 10px;
   font-size: 20px;
-} */
+}

@@ -3,17 +3,17 @@
   <h1>CATEGORIES</h1>
   <a href="#" class="text-light"><i class="bi bi-search h1"></i></a>
 </div>
-<ul class="top d-flex justify-content-center gap-2 pb-2 list-unstyled">
+<ul class="top d-flex justify-content-center gap-1 pb-1 list-unstyled">
   <li><%= link_to_unless_current("Most recent", root_path ) %><li>
   <li><%= link_to_unless_current("Most ancient",  older_categories_path ) %><li>
 </ul>
 
 <% if !@categories.empty? %>
-  <div id="categories" class="p-2">
+  <div id="categories" class="p-5">
   <% @categories.each do |category| %>
-    <div class="category d-flex border mb-1 p-1">
+  <div class="category d-flex border mb-1 p-1 m-3">
       <div class="logo me-2 col-3" style="background-image: url(<%= category.icon %>)"></div>
-      <div class="col-5">
+      <div class="col-3">
         <%= link_to category_path(category), class: 'text-decoration-none' do %>
           <%= category.name %>
         <% end %>
@@ -22,7 +22,7 @@
       <p></p>
       <% @total = 0 %>
       <% category.deal_categories.each { |e| @total += e.deal.amount }%>
-      <p class="text-end col-3">Total: $<%= @total %></p>
+      <p class="text-end col-1">Total: $<%= @total %></p>
     </div>
   <% end %>
   </div>

@@ -9,22 +9,23 @@
 </ul>
 
 <% if !@categories.empty? %>
-  <div id="categories" class="p-2">
-  <% @categories.each do |category| %>
-    <div class="category d-flex border mb-1 p-1">
-      <div class="logo me-2 col-3" style="background-image: url(<%= category.icon %>)"></div>
-      <div class="col-5">
-        <%= link_to category_path(category), class: 'text-decoration-none' do %>
-          <%= category.name %>
-        <% end %>
-        <p><%= category.created_at.strftime("%d %h %Y")  %></p>
+  <div id="categories" class="p-5">
+    <% @categories.each do |category| %>
+      <div class="category d-flex border mb-1 p-1 m-2">
+        <div class="logo me-2 col-3" style="background-image: url(<%= category.icon %>)"></div>
+        <div class="col-6">
+          <%= link_to category_path(category), class: 'text-decoration-none' do %>
+            <%= category.name %>
+          <% end %>
+          <p><%= category.created_at.strftime("%d %h %Y")  %></p>
+        </div>
+        <div class="col-1">
+          <% @total = 0 %>
+          <% category.deal_categories.each { |e| @total += e.deal.amount }%>
+          <p class="text-end">Total: $<%= @total %></p>
+        </div>
       </div>
-      <p></p>
-      <% @total = 0 %>
-      <% category.deal_categories.each { |e| @total += e.deal.amount }%>
-      <p class="text-end col-3">Total: $<%= @total %></p>
-    </div>
-  <% end %>
+    <% end %>
   </div>
 <% else %>
   <p class="p-2">No category added yet</p>
