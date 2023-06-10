@@ -1,11 +1,11 @@
 databases:
-  - name: mysite
-    databaseName: mysite
-    user: mysite
+  - name: micronaut
+    databaseName: budget_app_development_46pn
+    user: budget_app_development_46pn_user
 
 services:
   - type: web
-    name: mysite
+    name: yagil
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
